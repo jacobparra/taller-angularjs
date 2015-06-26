@@ -5,9 +5,9 @@
     .module('tallerUcabApp')
     .factory('post', post);
 
-  post.$inject = ['$http', '$q', 'BaseApiUrl'];
+  post.$inject = ['$http', '$q', 'BaseApiUrl', 'auth'];
 
-  function post($http, $q, BaseApiUrl) {
+  function post($http, $q, BaseApiUrl, auth) {
 
     var service = {
         getPosts: getPosts,

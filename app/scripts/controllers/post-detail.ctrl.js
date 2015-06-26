@@ -5,9 +5,9 @@
     .module('tallerUcabApp')
     .controller('PostDetailCtrl', PostDetailCtrl);
 
-  PostDetailCtrl.$inject = ['$routeParams', '$location', 'post'];
+  PostDetailCtrl.$inject = ['$stateParams', '$location', 'post'];
 
-  function PostDetailCtrl($routeParams, $location, post) {
+  function PostDetailCtrl($stateParams, $location, post) {
     var vm = this;
     vm.post = {};
     vm.user = {};
@@ -15,7 +15,7 @@
 
     ////////////
 
-    post.getPost($routeParams.postId)
+    post.getPost($stateParams.postId)
     .then(function (data) {
       vm.post = data.post;
       vm.user = data.user;

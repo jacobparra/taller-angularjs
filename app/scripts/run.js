@@ -5,9 +5,10 @@
     .module('tallerUcabApp')
     .run(run);
 
-  run.$inject = [];
+  run.$inject = ['auth'];
 
-  function run() {
+  function run(auth) {
+    auth.restoreSession();
   }
 
 })();
