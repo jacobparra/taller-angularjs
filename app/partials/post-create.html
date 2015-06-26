@@ -2,15 +2,24 @@
 
 <section>
   <form name="createPost" role="form" ng-submit="vm.create()">
+
     <fieldset class="form-group">
-      <input class="form-control input-lg" type="text" placeholder="Título del Post" ng-model="vm.post.title">
+      <input class="form-control input-lg" type="text" placeholder="Título del Post" ng-model="vm.post.title" ng-required="true" name="title">
+
+      <p ng-show="createPost.$dirty && createPost.title.$error.required">Este campo es obligatorio.</p>
+
     </fieldset>
+
     <fieldset class="form-group">
-      <textarea class="form-control input-lg" placeholder="Texto del Post" ng-model="vm.post.text"></textarea>
+      <textarea class="form-control input-lg" placeholder="Texto del Post" ng-model="vm.post.body"></textarea>
     </fieldset>
+
     <hr>
-    <button class="btn btn-primary btn-lg" type="submit" ng-disabled="!createPost.$valid">
+
+    <button class="btn btn-primary btn-lg" type="submit"
+    ng-disabled="!createPost.$valid">
       <span class="fa fa-rocket"> Publicar</span>
     </button>
+
   </form>
 </section>

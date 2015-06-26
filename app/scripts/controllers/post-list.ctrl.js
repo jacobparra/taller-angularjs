@@ -5,18 +5,18 @@
     .module('tallerUcabApp')
     .controller('PostListCtrl', PostListCtrl);
 
-  PostListCtrl.$inject = ['$http', 'BaseApiUrl'];
+  PostListCtrl.$inject = ['post'];
 
-  function PostListCtrl($http, BaseApiUrl) {
+  function PostListCtrl(post) {
     var vm = this;
     vm.posts = [];
 
     ////////////
 
-    $http.get(BaseApiUrl + '/posts')
-      .success(function(data) {
-        vm.posts = data;
-      });
+    post.getPosts()
+    .then(function (data) {
+      vm.posts = data;
+    });
   }
 
 })();

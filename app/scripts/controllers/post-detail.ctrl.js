@@ -5,26 +5,29 @@
     .module('tallerUcabApp')
     .controller('PostDetailCtrl', PostDetailCtrl);
 
-  PostDetailCtrl.$inject = ['$routeParams', '$http', 'BaseApiUrl'];
+  PostDetailCtrl.$inject = ['$routeParams', '$location', 'post'];
 
-  function PostDetailCtrl($routeParams, $http, BaseApiUrl) {
+  function PostDetailCtrl($routeParams, $location, post) {
     var vm = this;
     vm.post = {};
     vm.user = {};
+    vm.remove = remove;
 
     ////////////
 
-    // $routeParams.postId
-    $http.get(BaseApiUrl + '/posts/' + $routeParams.postId)
-      .success(function(data) {
-        vm.post = data;
+    post.getPost($routeParams.postId)
+    .then(function (data) {
+      vm.post = data.post;
+      vm.user = data.user;
+    });
 
-        $http.get(BaseApiUrl + '/users/' + vm.post.userId)
-        .success(function(data) {
-          vm.user = data;
-        });
-
+    function remove(postId) {
+      post.removePost(postId)
+      .then(function () {
+        alert('Post removido');
+        $location.path('/');
       });
+    }
 
   }
 

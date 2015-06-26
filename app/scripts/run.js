@@ -3,6 +3,11 @@
 
   angular
     .module('tallerUcabApp')
-    .constant('BaseApiUrl', 'https://api.parse.com/1')
+    .run(run);
+
+  run.$inject = [];
+
+  function run() {
+  }
 
 })();
