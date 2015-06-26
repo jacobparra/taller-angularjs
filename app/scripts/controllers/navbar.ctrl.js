@@ -16,6 +16,8 @@
     vm.login = login;
     vm.logout = logout;
 
+    console.log('asdfa');
+
     ////////////
 
     function login() {

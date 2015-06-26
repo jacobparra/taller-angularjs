@@ -3,25 +3,8 @@
 
     <p>Demostrando el uso de vistas anidadas con UI-Router</p>
 
-    <a class="btn btn-primary">Perfil</a>
-    <a class="btn btn-danger">Configuración</a>
+    <a ui-sref="account.profile" class="btn btn-primary">Perfil</a>
+    <a ui-sref="account.settings" class="btn btn-danger">Configuración</a>
 </div>
 
-
-<div class="text-center">
-  <h4>Nombre: {{ vm.user.name }}</h4>
-
-  <h4>Usuario: {{ vm.user.username }}</h4>
-
-  <h4>Email: {{ vm.user.email }}</h4>
-
-  <h4>Teléfono: {{ vm.user.phone }}</h4>
-</div>
-
-
-<div class="text-center">
-  <h3>Configuración de la cuenta</h3>
-
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia quaerat temporibus expedita ad commodi veniam odit est sequi voluptatibus sint, debitis molestiae corporis aspernatur voluptas dicta mollitia distinctio, quos quis!</p>
-
-</div>
+<div class="text-center" ui-view></div>

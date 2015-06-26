@@ -33,6 +33,14 @@
       templateUrl: 'partials/account.html',
       controller: 'AccountCtrl',
       controllerAs: 'vm'
+    })
+    .state('account.profile', {
+      url: '/profile',
+      templateUrl: 'partials/account.profile.html',
+    })
+    .state('account.settings', {
+      url: '/settings',
+      templateUrl: 'partials/account.settings.html',
     });
 
     $urlRouterProvider.otherwise("/");

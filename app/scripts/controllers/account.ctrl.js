@@ -10,6 +10,7 @@
   function AccountCtrl(auth) {
     var vm = this;
     vm.user = auth.user;
+
   }
 
 })();
